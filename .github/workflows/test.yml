@@ -1,0 +1,17 @@
+name: Execução de Testes 
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout projeto
+        uses: actions/checkout@v2
+      - run: npm i
+      - run: npm start &
+      - run: npm run cypress-run
