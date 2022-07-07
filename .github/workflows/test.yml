@@ -10,9 +10,8 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-            fetch-depth: 0
-      - run: npm i
-      - run: npm start &
-      - run: npm run cypress-run
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
